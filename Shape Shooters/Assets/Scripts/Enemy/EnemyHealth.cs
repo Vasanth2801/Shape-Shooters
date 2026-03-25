@@ -6,9 +6,13 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] private int maxHealth = 50;
     [SerializeField] private int currentHealth;
 
+    [Header("References")]
+    [SerializeField] private EnemySpawner spawner;
+
     void Start()
     {
         currentHealth = maxHealth;
+        spawner = FindAnyObjectByType<EnemySpawner>();
     }
 
     public void TakeDamage(int damage)
@@ -18,6 +22,7 @@ public class EnemyHealth : MonoBehaviour
         if(currentHealth <= 0)
         {
             currentHealth = 0;
+            spawner.waves[spawner.currentWave].enemiesCount--;
             Destroy(gameObject);
         }
     }

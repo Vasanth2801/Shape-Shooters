@@ -36,7 +36,7 @@ public class EnemySpawner : MonoBehaviour
     {
         if(currentWave >= waves.Length)
         {
-            Debug.Log("All Waves Completed");
+            UIManager.instance.WinScreen();
             return; 
         }
 
@@ -71,7 +71,6 @@ public class EnemySpawner : MonoBehaviour
                     GameObject enemy = Instantiate(waves[currentWave].enemies[i],spawnPoints.position,Quaternion.identity);
                     yield return new WaitForSeconds(waves[currentWave].timeBetweenWaves);
                 }
-
                 Debug.Log("Wave " + currentWave + " Spawned");
             }
         }
