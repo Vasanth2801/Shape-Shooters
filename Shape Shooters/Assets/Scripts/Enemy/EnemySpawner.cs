@@ -17,7 +17,7 @@ public class EnemySpawner : MonoBehaviour
     public Wave[] waves;
     [SerializeField] private float countDown;
     public Transform[] spawnPoint;
-    public int currentWave = 0;
+    public int currentWave = 1;
     public bool countDownBegin;
     [SerializeField] private TextMeshProUGUI waveCountDownText;
 
@@ -29,7 +29,7 @@ public class EnemySpawner : MonoBehaviour
             waves[i].enemiesCount = waves[i].enemies.Length;
         }
 
-        waveCountDownText.text = "Current Wave: " + currentWave.ToString();
+        waveCountDownText.text = "Wave: " + currentWave.ToString();
     }
 
     void Update()
